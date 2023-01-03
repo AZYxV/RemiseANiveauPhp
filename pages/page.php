@@ -8,13 +8,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/img1.png" class="d-block w-100" alt="Illustation">
+                    <img src="../assets/img1.png" class="d-block w-100" alt="Illustation">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img1.png" class="d-block w-100" alt="Illustration">
+                    <img src="../assets/img1.png" class="d-block w-100" alt="Illustration">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img1.png" class="d-block w-100" alt="Illustration">
+                    <img src="../assets/img1.png" class="d-block w-100" alt="Illustration">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

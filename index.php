@@ -1,10 +1,10 @@
 <?php
 if($_GET['page'] == 'page'){
-    include 'page.php';
+    include 'pages/page.php';
 } elseif ($_GET['page'] == 'header') {
-    include 'header.php';
+    include 'pages/header.php';
 } elseif ($_GET['page'] == 'footer') {
-    include 'footer.php';
+    include 'pages/footer.php';
 } else {
-    include 'notFound.php';
+    include 'pages/notFound.php';
 }
