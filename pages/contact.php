@@ -1,6 +1,9 @@
 <?php
 
+session_start();
+
 include 'header.php';
+
 
 if(isset($_POST['submit'])) {
 
@@ -13,6 +16,11 @@ if(isset($_POST['submit'])) {
     $raison = filter_input(INPUT_POST, 'raison', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+    $_SESSION['nom'] = $nom;
+    $_SESSION['prenom'] = $prenom;
+    $_SESSION['email'] = $email;
+    $_SESSION['message'] = $message;
+
     foreach ($_POST as $key => $value) {
         if (empty($value)) {
             ${"error$key"} = 'Veuillez completer le champs '.$key;
@@ -20,6 +28,10 @@ if(isset($_POST['submit'])) {
         }
     }
 
+    if($_POST['civilite'] != 'M' || $_POST['civilite'] != 'Mme') {
+        echo "civilite non";
+        $valid = false;
+    }
 
     if(strlen($_POST['message'])<5) {
         echo "Votre message dois contenir 5 caractères min";
@@ -34,7 +46,7 @@ if(isset($_POST['submit'])) {
     }
 
 }
-var_dump($_POST)
+
 ?>
 <main>
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
@@ -48,19 +60,19 @@ var_dump($_POST)
                 echo $errornom;
             } ?>
         <label for="nom">Nom :</label>
-        <input type="text" name="nom" id="nom">
+        <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['nom']; ?>">
         <br>
         <?php if($errorprenom) {
             echo $errorprenom;
         } ?>
         <label for="prenom">Prénom :</label>
-        <input type="text" name="prenom" id="prenom">
+        <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION['prenom']; ?>">
         <br>
         <?php if($erroremail) {
             echo $erroremail;
         } ?>
         <label for="email">Email :</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="<?php echo $_SESSION['email']; ?>">
         <br>
         <?php if($errorraison) {
             echo $errorraison;
